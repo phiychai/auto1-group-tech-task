@@ -1,0 +1,51 @@
+{
+  "type": "module",
+  "name": "auto1-group-technical-task",
+  "version": "0.1",
+  "description": "Auto1 Group Technical Task",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "format": "prettier ./src --write",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "start": "npm run dev",
+    "type": "tsc",
+    "test": "npm run test:vitest"
+  },
+  "dependencies": {
+    "@emotion/react": "latest",
+    "@emotion/styled": "latest",
+    "@mui/icons-material": "latest",
+    "@mui/material": "latest",
+    "axios": "^1.7.9",
+    "copy-to-clipboard": "latest",
+    "react": "^19",
+    "react-dom": "^19",
+    "react-router-dom": "latest"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9",
+    "@testing-library/react": "latest",
+    "@testing-library/user-event": "latest",
+    "@types/jest": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@types/react-router-dom": "latest",
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@vitejs/plugin-react-swc": "latest",
+    "eslint": "latest",
+    "eslint-plugin-react-hooks": "^5",
+    "eslint-plugin-react-refresh": "latest",
+    "globals": "latest",
+    "jsdom": "latest",
+    "prettier": "latest",
+    "ts-node": "latest",
+    "typescript": "^5",
+    "typescript-eslint": "latest",
+    "vite": "^6",
+    "vite-tsconfig-paths": "latest",
+    "vitest": "latest"
+  }
+}
