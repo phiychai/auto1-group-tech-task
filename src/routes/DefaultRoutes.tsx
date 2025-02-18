@@ -1,11 +1,11 @@
 
-import { PrivateLayout } from '@/layout';
+import { DefaultLayout } from '@/layout';
 import { NotFoundView } from '@/views';
 import HomeView from '@/views/Home';
 
-const PRIVATE_ROUTES = [
+const DEFAULT_ROUTES = [
   {
-    element: <PrivateLayout />,
+    element: <DefaultLayout />,
     children: [
       {
         path: '*',
@@ -19,4 +19,4 @@ const PRIVATE_ROUTES = [
   },
 ];
 
-export default PRIVATE_ROUTES;
+export default DEFAULT_ROUTES;
