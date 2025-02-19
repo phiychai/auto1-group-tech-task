@@ -35,8 +35,8 @@ export type Car = {
 
 export type CarsCollectionParams = {
   color?: string;
-  page: number;
   manufacturer?: string;
+  page: number;
 };
 
 export type CarsCollectionPaginated = {
