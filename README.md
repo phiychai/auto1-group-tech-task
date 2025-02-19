@@ -1,39 +1,37 @@
-# UI
 
-------> [Design and style guide](https://github.com/squirreljuror/api-design-and-styles/blob/master/design-and-style-guide.pdf) <------ Click here to see design
-- Use [Material UI](https://material-ui.com/) or [React Bootstrap](https://react-bootstrap.github.io/) for UI components (optional)
-- You can use available components only and ignore missmatching of original design if any (optional)
-- [Logo] (https://auto1-homepage.prod.mp.auto1.cloud/2.36.0-53/images/logo.svg)
+## Project Structure
 
-# Non-technical requirements
+The project follows a modular structure for better organization and maintainability:
 
-The application must meet the following requirements:
+Key directories and their purposes:
 
-- Retrieve a list of cars based on applied filters and pagination.
-- Implement pagination with a limit of 10 cars per page.
-- Enable users to filter cars by manufacturer or color.
-- Display detailed information for a selected car.
-- **Bonus**: Allow users to add or remove cars from their favorites collection using local storage.
+- `public/`: Contains static assets.
+- `src/`: Main source directory.
+  - `components/`: Reusable UI components.
+  - `layout/`: Components defining the overall structure.
+  - `routes/`: Routing components and configurations.
+  - `services/`: Service classes for API calls and data manipulation.
+  - `store/`: Redux store and related components.
+  - `theme/`: Theme-related components and configurations.
+  - `types/`: TypeScript type definitions and interfaces.
+  - `utils/`: Utility functions and classes.
+  - `views/`: Components representing different pages.
 
-# Technical requirements
+## Tools and Technologies
 
-- Create a SPA using latest **ReactJS**
-- Use **vite** to setup app
-- Use best practices with hooks
-- Add tests (with [react-testing-library](https://testing-library.com/docs/react-testing-library/intro))
-- Pixel-perfect design is not required.
-- __Bonus__  Static type checking (TS or Flow)
+This project is built using modern web development tools and technologies:
 
-# Please avoid
+1. **React**: A JavaScript library for building user interfaces.
+2. **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
+3. **Vite**: A build tool that aims to provide a faster and leaner development experience for modern web projects.
+4. **Redux**: A predictable state container for JavaScript apps.
+5. **Material-UI**: A popular React UI framework for faster and easier web development.
+6. **React Router**: Declarative routing for React applications.
+7. **Axios**: Promise based HTTP client for the browser and node.js.
+8. **ESLint**: A tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
+9. **Prettier**: An opinionated code formatter.
+10. **React Testing Library**: A light-weight solution for testing React components.
 
-- Copying any functionality from other projects
-- Deep project structure, ideally only 2 levels are allowed
-- Premature optimization
-
-
-# Swagger
-
-For the application data, please use following swagger docs:
-
-[API docs](https://auto1-mock-server.vercel.app/api/docs)
-
+Development Environment:
+- Node.js and npm (Node Package Manager)
+- Git for version control
