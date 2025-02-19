@@ -6,7 +6,7 @@ const NotFoundView = () => {
   return (
     <AppView>
       <Grid2 container justifyContent="center" alignItems='center'>
-        <Stack spacing={2}  justifyContent="center" alignItems='center'>
+        <Stack spacing={2}  justifyContent="center" alignItems='center' sx={{minHeight: "calc(100vh - 220px)"}}>
           <Box
             component="img"
             src="https://auto1-homepage.prod.mp.auto1.cloud/2.36.0-53/images/logo.svg"
