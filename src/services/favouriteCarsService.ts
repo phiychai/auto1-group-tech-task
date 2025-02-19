@@ -16,6 +16,7 @@ const loadFavouriteCars = (): Set<string> => {
   if (typeof storedFavouriteCars === 'string') {
     try {
       cars = JSON.parse(storedFavouriteCars);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       console.warn('Invalid data in localStorage for favourite cars. Resetting to empty array.');
       // If there's an error parsing, we'll use an empty array

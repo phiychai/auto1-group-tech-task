@@ -9,6 +9,7 @@ export function localStorageGet(name: string, defaultValue: unknown = ''): Stora
     if (['string', 'number', 'boolean', 'boolean', 'bigint', 'object'].includes(typeof jsonParsed)) {
       return jsonParsed;
     }
+  // eslint-disable-next-line no-empty, @typescript-eslint/no-unused-vars
   } catch (error) {}
 
   return valueFromStore;

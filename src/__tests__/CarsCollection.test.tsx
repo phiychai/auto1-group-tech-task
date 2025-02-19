@@ -1,5 +1,5 @@
 import { describe, it, vi, expect } from 'vitest';
-import { CarsCollectionPaginated } from '@/types/car';
+import { CarsCollectionPaginated, FuelType } from '@/types/car';
 import { render, screen } from '@testing-library/react';
 import CarsCollection from '@/components/CarsCollection';
 
@@ -12,7 +12,7 @@ describe('CarsCollection', () => {
         modelName: 'A1',
         color: 'red',
         mileage: { number: 10000, unit: 'km' },
-        fuelType: 'Petrol | Electric',
+        fuelType: 'Petrol | Electric ' as FuelType,
         pictureUrl: 'https://example.com/car.jpg',
       },
     ],
@@ -29,7 +29,7 @@ describe('CarsCollection', () => {
           modelName: 'A1',
           color: 'red',
           mileage: { number: 10000, unit: 'km' },
-          fuelType: 'Petrol | Electric',
+          fuelType: 'Petrol | Electric ' as FuelType,
           pictureUrl: 'https://example.com/car1.jpg',
         },
         {

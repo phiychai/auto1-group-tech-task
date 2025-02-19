@@ -1,42 +1,40 @@
 import React, { JSX, useEffect } from 'react';
 import { Box, Button, Typography, Grid2, Stack } from '@mui/material';
 import { Car } from '@/types/car';
-import { isFavouriteCar, addFavouriteCar, removeFavouriteCar } from '@/services/favouriteCarsService';
+import { useFavouriteCars } from '@/hooks/useFavouriteCars';
 import IconButton from '@mui/material/IconButton';
 import CloseIcopn from '@mui/icons-material/Close';
+
 interface Props {
   car: Car;
   onClose: () => void;
 }
 
-/**
- * CarDetails component displays detailed information about a car and allows users to save/remove it from favorites.
- *
- * @param {Object} props - The component props.
- * @param {Car} props.car - The car object containing details to be displayed.
- * @param {() => void} props.onClose - Function to be called when the user closes the details view.
- * @returns {JSX.Element} A React component that renders the car details.
- */
-
 const CarDetails = ({ car, onClose }: Props): JSX.Element => {
+  const { checkIsFavourite, addToFavourites, removeFromFavourites } = useFavouriteCars();
   const [isFavourite, setFavourite] = React.useState(false);
 
   useEffect(() => {
-    isFavouriteCar(car.manufacturerName, car.stockNumber) ? setFavourite(true) : setFavourite(false);
-  }, [car.manufacturerName, car.stockNumber]);
+    setFavourite(checkIsFavourite(car.manufacturerName, car.stockNumber));
+  }, [car.manufacturerName, car.stockNumber, checkIsFavourite]);
 
   const handleFavourite = (car: Car) => {
     if (isFavourite) {
-      removeFavouriteCar(car.manufacturerName, car.stockNumber);
-      isFavouriteCar(car.manufacturerName, car.stockNumber) ? setFavourite(true) : setFavourite(false);
+      removeFromFavourites(car.manufacturerName, car.stockNumber);
     } else {
-      addFavouriteCar(car);
-      isFavouriteCar(car.manufacturerName, car.stockNumber) ? setFavourite(true) : setFavourite(false);
+      addToFavourites(car);
     }
+    setFavourite(!isFavourite);
   };
+
   return (
     <Stack gap={3} alignItems="center">
-      <IconButton color="primary" sx={{ position: 'absolute', right: '20px', top: '20px' }} onClick={() => onClose()} data-testid="close-button">
+      <IconButton
+        color="primary"
+        sx={{ position: 'absolute', right: '20px', top: '20px' }}
+        onClick={() => onClose()}
+        data-testid="close-button"
+      >
         <CloseIcopn />
       </IconButton>
       <Stack spacing={4} bgcolor="#ededed" width="100%">
@@ -54,11 +52,11 @@ const CarDetails = ({ car, onClose }: Props): JSX.Element => {
       </Stack>
       <Grid2 container maxWidth={800} columnSpacing={9} rowSpacing={4}>
         <Grid2 size={{ sm: 12, md: 7 }}>
-          <Stack spacing={2} >
+          <Stack spacing={2}>
             <Typography component="h2" variant="h2">
               {car.manufacturerName} {car.modelName}
             </Typography>
-            <Typography component="p" variant="body2" textTransform='capitalize'>
+            <Typography component="p" variant="body2" textTransform="capitalize">
               Stock # {car.stockNumber} - {car.mileage.number} {car.mileage.unit} - {car.fuelType} - {car.color}
             </Typography>
             <Typography component="p">
@@ -68,7 +66,7 @@ const CarDetails = ({ car, onClose }: Props): JSX.Element => {
           </Stack>
         </Grid2>
         <Grid2 size={{ sm: 12, md: 5 }}>
-          <Stack spacing={2} border={1} p={3}  sx={{ borderColor: 'divider' }}>
+          <Stack spacing={2} border={1} p={3} sx={{ borderColor: 'divider' }}>
             <Typography component={'p'}>
               If you like this car, click the button and save it in your collection of favourite items.
             </Typography>
