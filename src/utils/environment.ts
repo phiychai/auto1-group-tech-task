@@ -10,7 +10,6 @@ export function envGet(
 ): string | undefined {
 
   let variable = import.meta.env[name];
-
   if (typeof variable === 'undefined') {
     if (isRequired) {
       throw new Error(`Missing process.env.${name} variable`);
