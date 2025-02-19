@@ -35,3 +35,19 @@ This project is built using modern web development tools and technologies:
 Development Environment:
 - Node.js and npm (Node Package Manager)
 - Git for version control
+
+## Testing
+
+This project uses Vitest as the testing framework along with React Testing Library for component testing. Here's an overview of our testing setup:
+
+### Test Structure
+
+- Tests are located in the `src/__tests__` directory
+- Each test file is named after the component or service it tests, with a `.test.tsx` or `.test.ts` extension
+
+### Running Tests
+
+To run the test suite, use the following command:
+
+```bash
+npm run test
