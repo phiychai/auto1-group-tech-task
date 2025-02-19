@@ -14,6 +14,7 @@ Key directories and their purposes:
   - `types/`: TypeScript type definitions and interfaces.
   - `utils/`: Utility functions and classes.
   - `views/`: Components representing different pages.
+  - `__tests__`: Tests directory.
 
 ## Tools and Technologies
 
@@ -40,7 +41,7 @@ This project uses Vitest as the testing framework along with React Testing Libra
 
 ### Test Structure
 
-- Tests are located in the `src/__tests__` directory
+- Tests are located in the `__tests__` directory
 - Each test file is named after the component or service it tests, with a `.test.tsx` or `.test.ts` extension
 
 ### Running Tests
