@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    /* Settings for Jest only, it doesn't work with tsconfig references correctly :( */
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -17,7 +16,7 @@
       "@/*": ["./src/*"]
     },
     "target": "ES2022",
-    "types": ["vite/client" /* required to get import.meta working */, "@testing-library/jest-dom"]
+    "types": ["vite/client"]
   },
   "files": [],
   "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]

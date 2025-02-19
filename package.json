@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "start": "npm run dev",
     "type": "tsc",
-    "test": "npm run test:vitest"
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@emotion/react": "latest",
@@ -26,9 +27,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9",
-    "@testing-library/react": "latest",
+    "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "latest",
-    "@types/jest": "latest",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
@@ -46,6 +46,6 @@
     "typescript-eslint": "latest",
     "vite": "^6",
     "vite-tsconfig-paths": "latest",
-    "vitest": "latest"
+    "vitest": "^3.0.6"
   }
 }

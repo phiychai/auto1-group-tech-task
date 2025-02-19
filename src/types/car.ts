@@ -15,7 +15,7 @@ export type ManufacturerCollection = {
   manufacturers: Manufacturer[];
 };
 
-export type FuelType = 'Diesel' | 'Petrol';
+export type FuelType = 'Diesel' | 'Petrol | Electric ';
 export type MileageUnit = 'km' | 'mi';
 
 export type Mileage = {

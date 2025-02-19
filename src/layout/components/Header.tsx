@@ -21,13 +21,13 @@ const Header: FunctionComponent = () => {
       >
         <Box>
           <Typography variant="h1" className="sr-only">
-            AUTO1.com
+            Auto1.com
           </Typography>
           <RouterLink to="/">
             <Box
               component="img"
               src="https://auto1-homepage.prod.mp.auto1.cloud/2.36.0-53/images/logo.svg"
-              alt="AUTO1.com logo"
+              alt="Auto1.com logo"
             />
           </RouterLink>
         </Box>

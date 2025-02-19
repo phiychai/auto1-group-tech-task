@@ -36,7 +36,7 @@ const CarDetails = ({ car, onClose }: Props): JSX.Element => {
   };
   return (
     <Stack gap={3} alignItems="center">
-      <IconButton color="primary" sx={{ position: 'absolute', right: '20px', top: '20px' }} onClick={() => onClose()}>
+      <IconButton color="primary" sx={{ position: 'absolute', right: '20px', top: '20px' }} onClick={() => onClose()} data-testid="close-button">
         <CloseIcopn />
       </IconButton>
       <Stack spacing={4} bgcolor="#ededed" width="100%">

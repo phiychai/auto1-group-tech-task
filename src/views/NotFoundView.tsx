@@ -10,7 +10,7 @@ const NotFoundView = () => {
           <Box
             component="img"
             src="https://auto1-homepage.prod.mp.auto1.cloud/2.36.0-53/images/logo.svg"
-            alt="AUTO1.com logo"
+            alt="Auto1.com logo"
             maxWidth={138}
           />
           <Typography component="h2" variant="h2">404 - Not Found</Typography>

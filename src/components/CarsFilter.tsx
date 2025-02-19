@@ -109,14 +109,14 @@ const CarsFilter = (): React.ReactElement => {
                 value={localColor}
                 onChange={handleColorChange}
                 displayEmpty
-                data-testid="color-select"
+                data-testid="select-color"
                 fullWidth
                 sx={{ textTransform: 'capitalize' }}
                 MenuProps={selectMenuProps}
               >
                 <MenuItem value="">All car colors</MenuItem>
                 {carColors.map((color) => (
-                  <MenuItem key={color} data-testid={`color-select-item-${color}`} value={color}>
+                  <MenuItem key={color} data-testid={`select-color-item-${color}`} value={color}>
                     {color}
                   </MenuItem>
                 ))}
@@ -142,12 +142,12 @@ const CarsFilter = (): React.ReactElement => {
                   PaperProps: {
                     ...selectMenuProps.PaperProps,
                     props: {
-                      'data-testid': 'manufacturer-select-menu',
+                      'data-testid': 'manufacturer-select',
                     },
                   },
                 }}
               >
-                <MenuItem value="" data-testid={`manufacturer-select-item-all-manufacturers`}>
+                <MenuItem value="" data-testid={`manufacturer-select-all-manufacturers`}>
                   All Manufacturers
                 </MenuItem>
                 {manufacturerList.map((manufacturer) => (
