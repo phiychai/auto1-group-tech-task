@@ -9,7 +9,14 @@ interface Props {
   car: Car;
   onClose: () => void;
 }
-
+/**
+ * CarDetails component displays detailed information about a car and allows users to add/remove it from favorites.
+ *
+ * @param {Object} props - The component props.
+ * @param {Car} props.car - The car object containing details to be displayed.
+ * @param {() => void} props.onClose - Function to be called when the user closes the details view.
+ * @returns {JSX.Element} A React component that renders the car details.
+ */
 const CarDetails = ({ car, onClose }: Props): JSX.Element => {
   const { checkIsFavourite, addToFavourites, removeFromFavourites } = useFavouriteCars();
   const [isFavourite, setFavourite] = React.useState(false);

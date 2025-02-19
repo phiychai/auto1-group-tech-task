@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { Car } from '@/types/car';
 import * as localStorage from '@/utils/localStorage';
-import { addFavouriteCar, removeFavouriteCar, isFavouriteCar, getFavouriteCars } from '@/services/favouriteCarsService';
+import { addFavouriteCar, isFavouriteCar } from '@/services/favouriteCarsService';
 
 vi.mock('@/utils/localStorage');
 
@@ -32,6 +32,4 @@ describe('favouriteCarsService', () => {
     );
     expect(isFavouriteCar('Tesla', 12345)).toBe(true);
   });
-
-
 });

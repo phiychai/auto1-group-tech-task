@@ -55,7 +55,7 @@ const HomeView = (): React.ReactElement => {
         dispatch({ type: 'SET_MANUFACTURERS', payload: manufacturers });
         dispatch({ type: 'SET_CARS_COLLECTION', payload: carsData });
         dispatch({ type: 'SET_VIEW_STATE', payload: carsData.cars.length > 0 ? 'list' : 'noResults' });
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (error) {
         dispatch({ type: 'SET_ERROR', payload: 'Connection error' });
         dispatch({ type: 'SET_VIEW_STATE', payload: 'error' });

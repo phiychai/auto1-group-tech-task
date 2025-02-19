@@ -1,7 +1,7 @@
 import {  it, vi, expect } from 'vitest';
 import axios from 'axios';
 import { apiService } from '@/services/apiService';
-import { CarsCollectionParams, CarsCollectionPaginated, ManufacturerCollection, CarColors } from '@/types/car';
+import { CarsCollectionParams, CarsCollectionPaginated } from '@/types/car';
 
 it('should create an axios instance with the correct base URL', async () => {
   const axiosCreateSpy = vi.spyOn(axios, 'create');

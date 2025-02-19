@@ -1,5 +1,5 @@
 import { it, vi, expect } from 'vitest';
-import { render, screen, fireEvent, within } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import CarsFilter from '@/components/CarsFilter';
 import { useAppStore } from '@/store/AppStore';
 import userEvent from '@testing-library/user-event';
@@ -23,10 +23,10 @@ it('should update local state when color is selected', () => {
 
   render(<CarsFilter />);
 
-  const colorSelect = screen.getByLabelText(/color/i);
+  const colorSelect = screen.getByLabelText(/color/i) as HTMLSelectElement;
   fireEvent.change(colorSelect, { target: { value: 'blue' } });
 
-  expect(colorSelect).toHaveValue('blue');
+  expect(colorSelect.value).toBe('blue');
 });
 it('should dispatch filter action with correct parameters when Filter button is clicked', async () => {
   const mockState = {
