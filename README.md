@@ -1,8 +1,6 @@
 
 ## Project Structure
 
-The project follows a modular structure for better organization and maintainability:
-
 Key directories and their purposes:
 
 - `public/`: Contains static assets.
