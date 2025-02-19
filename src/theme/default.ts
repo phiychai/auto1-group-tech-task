@@ -11,8 +11,27 @@ export const DEFAULT_THEME: ThemeOptions = {
     //   default: '#FFFFFF',
     // },
   },
-   typography,
-components: {
+  typography,
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        text: {
+          textDecoration: 'none',
+          transition: 'border 0.3s ease',
+          borderBottom: '1px solid transparent',
+            paddingTop: '2px',
+          paddingBottom: '0px',
+          paddingRight: '0px',
+          paddingleft: '0px',
+          lineHeight: "1.2",
+          '&:hover': {
+            backgroundColor: 'transparent',
+            borderBottom: '1px solid',
+            textDecoration: 'none',
+          },
+        },
+      },
+    },
     MuiLink: {
       defaultProps: {
         underline: 'hover',

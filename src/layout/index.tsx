@@ -1,4 +1,4 @@
-import Footer from './Footer';
-import Header from './Header';
-
-export { Header, Footer };
+import Footer from './components/Footer';
+import Header from './components/Header';
+import DefaultLayout from './DefaultLayout';
+export { Header, Footer, DefaultLayout };
