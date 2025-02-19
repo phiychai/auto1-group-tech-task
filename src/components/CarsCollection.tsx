@@ -74,9 +74,9 @@ const CarsCollection = ({
                         <Skeleton variant="rectangular" width="70px" height="66px" />
                       </Stack>
                       <Stack display="flex" width="100%" gap={1}>
-                        <Skeleton variant="rectangular" width="100%" height={16} />
-                        <Skeleton variant="rectangular" width="100%" height={11} />
-                        <Skeleton variant="rectangular" width="40%" height={10} />
+                        <Skeleton variant="rectangular" width="100%" height={16} data-testid="skeleton-loader" />
+                        <Skeleton variant="rectangular" width="100%" height={11}data-testid="skeleton-loader" />
+                        <Skeleton variant="rectangular" width="40%" height={10} data-testid="skeleton-loader"/>
                       </Stack>
                     </CardContent>
                   </>

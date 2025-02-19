@@ -1,16 +1,6 @@
 import { Car } from "@/types/car";
 import { localStorageGet, localStorageSet } from "@/utils/localStorage";
-/**
- * Adds a car to the list of favorite cars.
- *
- * This function loads the current list of favorite cars, adds the new car to the list,
- * and then saves the updated list back to storage.
- *
- * @param car - The car object to be added to favorites.
- *              It should have properties 'manufacturerName' and 'stockNumber'.
- *
- * @returns void - This function doesn't return anything.
- */
+
 const FAVOURITE_CARS_STORAGE_KEY = "favourite-cars";
 
 let cachedFavouriteCars: Set<string> | null = null;
@@ -27,16 +17,23 @@ const loadFavouriteCars = (): Set<string> => {
     try {
       cars = JSON.parse(storedFavouriteCars);
     } catch (error) {
-      console.error('Error parsing stored favoutite cars:', error);
+      console.warn('Invalid data in localStorage for favourite cars. Resetting to empty array.');
+      // If there's an error parsing, we'll use an empty array
+      cars = [];
     }
   } else if (Array.isArray(storedFavouriteCars)) {
     cars = storedFavouriteCars;
   }
 
+  // Ensure that cars is always an array
+  if (!Array.isArray(cars)) {
+    console.warn('Stored favourite cars data is not an array. Resetting to empty array.');
+    cars = [];
+  }
+
   cachedFavouriteCars = new Set(cars.map(getFavouriteCarKey));
   return cachedFavouriteCars;
 };
-
 const saveFavouriteCar = (): void => {
   if (!cachedFavouriteCars) return;
   const carsArray = Array.from(cachedFavouriteCars).map(key => {

@@ -1,13 +1,14 @@
-import { describe, it, vi, expect } from 'vitest';
-import { render, fireEvent } from '@testing-library/react';
+import { it, vi, expect } from 'vitest';
+import { render, screen, fireEvent, within } from '@testing-library/react';
 import CarsFilter from '@/components/CarsFilter';
 import { useAppStore } from '@/store/AppStore';
+import userEvent from '@testing-library/user-event';
 
 vi.mock('@/store/AppStore');
 
 it('should update local state when color is selected', () => {
   const mockState = {
-    carColors: ['Red', 'Blue', 'Green'],
+    carColors: ['red', 'blue', 'green'],
     manufacturerList: [],
     paginatedCarCollectionParams: { color: '', manufacturer: '', page: 1 },
     carsCollectionPaginated: { cars: [], totalCarsCount: 0, totalPageCount: 0 },
@@ -20,19 +21,20 @@ it('should update local state when color is selected', () => {
 
   vi.mocked(useAppStore).mockReturnValue([mockState, mockDispatch]);
 
-  const { getByTestId } = render(<CarsFilter />);
-  const colorSelect = getByTestId('select-color');
+  render(<CarsFilter />);
 
-  fireEvent.mouseDown(colorSelect);
-  const blueOption = getByTestId('select-color-item-Blue');
-  fireEvent.click(blueOption);
+  const colorSelect = screen.getByLabelText(/color/i);
+  fireEvent.change(colorSelect, { target: { value: 'blue' } });
 
-  expect(colorSelect).toHaveTextContent('Blue');
+  expect(colorSelect).toHaveValue('blue');
 });
-it('should dispatch filter action with correct parameters when Filter button is clicked', () => {
+it('should dispatch filter action with correct parameters when Filter button is clicked', async () => {
   const mockState = {
-    carColors: ['Red', 'Blue', 'Green'],
-    manufacturerList: [{ name: 'Audi', models: [] }, { name: 'BMW', models: [] }],
+    carColors: ['red', 'blue', 'green'],
+    manufacturerList: [
+      { name: 'Audi', models: [] },
+      { name: 'BMW', models: [] },
+    ],
     paginatedCarCollectionParams: { color: '', manufacturer: '', page: 1 },
     carsCollectionPaginated: { cars: [], totalCarsCount: 0, totalPageCount: 0 },
     loading: false,
@@ -44,25 +46,24 @@ it('should dispatch filter action with correct parameters when Filter button is 
 
   vi.mocked(useAppStore).mockReturnValue([mockState, mockDispatch]);
 
-  const { getByTestId } = render(<CarsFilter />);
+  render(<CarsFilter />);
 
-  const colorSelect = getByTestId('select-color');
-  fireEvent.mouseDown(colorSelect);
-  const blueOption = getByTestId('select-color-item-Blue');
-  fireEvent.click(blueOption);
+  // Select color
+  const colorSelect = screen.getByLabelText(/color/i);
+  fireEvent.change(colorSelect, { target: { value: 'blue' } });
 
-  const manufacturerSelect = getByTestId('select-manufacturer');
-  fireEvent.mouseDown(manufacturerSelect);
-  const audiOption = getByTestId('select-manufacturer-item-Audi');
-  fireEvent.click(audiOption);
+  // Select manufacturer
+  const manufacturerSelect = screen.getByLabelText(/manufacturer/i);
+  fireEvent.change(manufacturerSelect, { target: { value: 'Audi' } });
 
-  const filterButton = getByTestId('filter-button');
-  fireEvent.click(filterButton);
+  // Click filter button
+  const filterButton = screen.getByRole('button', { name: /filter/i });
+  await userEvent.click(filterButton);
 
   expect(mockDispatch).toHaveBeenCalledWith({
     type: 'SET_CARS_COLLECTION_PARAMS',
     payload: {
-      color: 'Blue',
+      color: 'blue',
       manufacturer: 'Audi',
       page: 1,
     },

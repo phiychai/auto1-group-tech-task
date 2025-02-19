@@ -22,10 +22,22 @@ it('should create an axios instance with the correct base URL', async () => {
 it('should handle API errors when calling getCars', async () => {
   const errorMessage = 'Network Error';
   const mockGet = vi.fn().mockRejectedValueOnce(new Error(errorMessage));
-  vi.spyOn(axios, 'create').mockReturnValueOnce({ get: mockGet } as any);
+
+  // Mock the axios instance
+  const mockAxiosInstance = {
+    get: mockGet,
+  };
+
+  // Mock axios.create to return our mockAxiosInstance
+  vi.spyOn(axios, 'create').mockReturnValueOnce(mockAxiosInstance as any);
+
+  // Reset modules and re-import apiService to use the mocked axios instance
+  vi.resetModules();
+  const { apiService } = await import('@/services/apiService');
 
   const params: CarsCollectionParams = { page: 1 };
 
+  // Now, we expect the apiService.getCars to throw an error
   await expect(apiService.getCars(params)).rejects.toThrow(errorMessage);
 
   expect(mockGet).toHaveBeenCalledWith('/cars', { params });
